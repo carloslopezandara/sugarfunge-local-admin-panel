@@ -17,7 +17,8 @@ $ git clone https://github.com/SugarFunge/sugarfunge-local.git
 
 - Copy the environment file as **.env**
 ```
-cp .env.example .env```
+cp .env.example .env
+```
 
 
 - Login with Docker or build the SugarFunge docker images and configure the docker-compose file with those images
