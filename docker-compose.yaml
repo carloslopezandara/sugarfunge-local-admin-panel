@@ -91,7 +91,6 @@ services:
       - ./ipfs:/data/ipfs
   appsmith:
     image: index.docker.io/appsmith/appsmith-ce
-    container_name: appsmith
     ports:
       - "81:80"
       - "443:443"
