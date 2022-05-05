@@ -16,7 +16,7 @@ services:
   keycloak:
     image: 'quay.io/keycloak/keycloak:15.0.2'
     ports:
-      - "8080:8080"
+      - "8081:8080"
     restart: always
     command:
       - '-Dkeycloak.profile.feature.upload_scripts=enabled'
@@ -38,10 +38,10 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       KEYCLOAK_USER: ${KEYCLOAK_USER}
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
-  hasura:
+  graphql-engine:
     image: 'hasura/graphql-engine:v2.6.1'
     ports:
-      - '8081:8080'
+      - '8080:8080'
     depends_on:
       - postgres
     restart: always
