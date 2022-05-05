@@ -51,7 +51,7 @@ $ docker exec -it <container-id> sh
 $ psql -U hasura -d hasura < hasura.sql
 ```
 
-- Access [Hasura](http://localhost:8081), data section and hit 'Track all' button for the tables/views and foreign-key relationships
+- Access [Hasura](http://localhost:8080), data section and hit 'Track all' button for the tables/views and foreign-key relationships
 
 - Access Hasura's settings in the metadata actions section and import the metadata json file
 
@@ -76,8 +76,8 @@ $ ngrok http http://localhost:4000
 3. [Sugarfunge Status](https://github.com/SugarFunge/sf-front-end): Minimal blockchain information ([Click here to access](http://localhost:8000))
 4. [Sugarfunge Explorer](https://github.com/SugarFunge/sugarfunge-explorer): polkadot-js blockchain explorer ([Click here to access](http://localhost:80))
 5. [PostgreSQL](https://www.postgresql.org): Powerful, open source object-relational database system (Accessible at http://localhost:5432) (Tip: Change the port number or remove the port section in the docker-compose file if you already have a postgres instance running to avoid port conflicts)
-6. [Hasura](https://hasura.io/): Instant GraphQL & REST APIs on new & existing data sources. ([Click here to access](http://localhost:8081))
-7. [Keycloak](https://www.keycloak.org): Open source identity and access management solution ([Click here to access](http://localhost:8080)) (Tip: The username and password is `keycloak`)
+6. [Hasura](https://hasura.io/): Instant GraphQL & REST APIs on new & existing data sources. ([Click here to access](http://localhost:8080))
+7. [Keycloak](https://www.keycloak.org): Open source identity and access management solution ([Click here to access](http://localhost:8081)) (Tip: The username and password is `keycloak`)
 8. [IPFS](https://ipfs.io): Distributed storage ([Click here to access the WebUI](http://localhost:5001/webui)) (API available at http://localhost:8001) 
 9. [AppSmith](https://www.appsmith.com/): Powerful open source framework to build internal tools ([Click here to access](http://localhost:81))
 
