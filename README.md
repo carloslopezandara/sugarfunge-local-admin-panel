@@ -12,7 +12,7 @@
 
 - Clone the project
 ```
-$ git clone https://github.com/SugarFunge/sugarfunge-local.git
+git clone https://github.com/SugarFunge/sugarfunge-local.git
 ```
 
 - Copy the environment file as **.env**
@@ -28,43 +28,48 @@ docker login -u (username) -p (password) sugarfunge.azurecr.io
 
 - Run with docker-compose
 ```
-$ docker-compose up -d
+docker-compose up -d
 ```
 
 - Check the postgres container ID 
 ```
-$ docker ps
+docker ps
 ```
 
 - Copy the hasura.sql file into the docker container
 ```
-$ docker cp hasura.sql <container-id>:/.
+docker cp hasura.sql <container-id>:/.
 ```
 
 - Access the postgres docker container
 ```
-$ docker exec -it <container-id> sh
+docker exec -it <container-id> sh
 ```
 
 - Set the database structure
 ```
-$ psql -U hasura -d hasura < hasura.sql
+psql -U hasura -d hasura < hasura.sql
 ```
 
 - Access [Hasura](http://localhost:8080), data section and hit 'Track all' button for the tables/views and foreign-key relationships
 
 - Access Hasura's settings in the metadata actions section and import the metadata json file
 
-- Host the sf-API with ngrok for it to be accessible from appsmith: 
+- Host the sf-API with ngrok for it to be accessible from appsmith (this step must be done everytime you start the containers): 
 ```
-$ ngrok http http://localhost:4000
+ngrok http http://localhost:4000
 ```
 
 - Access [Appsmith](http://localhost:81) and create a local account (You can skip the tutorial)
 
-- On the Appsmith main menu, import the app using the 'Admin Panel' json file.
+- On the Appsmith main menu, import the app using the 'Admin Panel' json file
 
-- Update the 'SugarFunge' datasource using the url given by ngrok
+- Update the 'SugarFunge' datasource using the url given by ngrok (this step must be done everytime you start the containers)
+
+- Update the 'Hasura' datasource using:
+```
+http://graphql-engine:8080
+```
 
 - Click on the Deploy button at top right to try the app out.
 

@@ -13,31 +13,31 @@ services:
     volumes: 
         - postgres_data:/var/lib/postgresql/data 
         - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
-  keycloak:
-    image: 'quay.io/keycloak/keycloak:15.0.2'
-    ports:
-      - "8081:8080"
-    restart: always
-    command:
-      - '-Dkeycloak.profile.feature.upload_scripts=enabled'
-      - '-Dkeycloak.migration.action=import'
-      - '-Dkeycloak.migration.provider=singleFile'
-      - '-Dkeycloak.migration.file=/tmp/master-realm.json'
-      - '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING'
-    volumes:
-      - type: bind
-        source: './keycloak/master-realm.json'
-        target: '/tmp/master-realm.json'
-    environment:
-      PROXY_ADDRESS_FORWARDING: ${PROXY_ADDRESS_FORWARDING}
-      DB_VENDOR: ${DB_VENDOR}
-      DB_ADDR: ${DB_ADDR}
-      DB_DATABASE: ${DB_DATABASE}
-      DB_SCHEMA: ${DB_SCHEMA}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      KEYCLOAK_USER: ${KEYCLOAK_USER}
-      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+  # keycloak:
+  #   image: 'quay.io/keycloak/keycloak:15.0.2'
+  #   ports:
+  #     - "8081:8080"
+  #   restart: always
+  #   command:
+  #     - '-Dkeycloak.profile.feature.upload_scripts=enabled'
+  #     - '-Dkeycloak.migration.action=import'
+  #     - '-Dkeycloak.migration.provider=singleFile'
+  #     - '-Dkeycloak.migration.file=/tmp/master-realm.json'
+  #     - '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING'
+  #   volumes:
+  #     - type: bind
+  #       source: './keycloak/master-realm.json'
+  #       target: '/tmp/master-realm.json'
+  #   environment:
+  #     PROXY_ADDRESS_FORWARDING: ${PROXY_ADDRESS_FORWARDING}
+  #     DB_VENDOR: ${DB_VENDOR}
+  #     DB_ADDR: ${DB_ADDR}
+  #     DB_DATABASE: ${DB_DATABASE}
+  #     DB_SCHEMA: ${DB_SCHEMA}
+  #     DB_USER: ${DB_USER}
+  #     DB_PASSWORD: ${DB_PASSWORD}
+  #     KEYCLOAK_USER: ${KEYCLOAK_USER}
+  #     KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
   graphql-engine:
     image: 'hasura/graphql-engine:v2.6.1'
     ports:
@@ -67,28 +67,28 @@ services:
     restart: always
     network_mode: 'host'
     command: ["-l", "http://0.0.0.0:4000", "-s", "ws://127.0.0.1:9944"]
-  sf-status:
-    image: 'sugarfunge.azurecr.io/status:latest'
-    restart: always
-    network_mode: 'host'
-    environment:
-        PORT: ${PORT}
-        REACT_APP_PROVIDER_SOCKET: ${REACT_APP_PROVIDER_SOCKET}
-  sf-explorer:
-    image: 'sugarfunge.azurecr.io/explorer:latest'
-    restart: always
-    network_mode: 'host'
-    environment:
-      WS_URL: ${WS_URL}
-  ipfs:
-    image: 'ipfs/go-ipfs:master-2021-11-17-0c2f9d5'
-    restart: always
-    ports:
-      - "4001:4001"
-      - "8001:8080"
-      - "5001:5001"
-    volumes:
-      - ./ipfs:/data/ipfs
+  # sf-status:
+  #   image: 'sugarfunge.azurecr.io/status:latest'
+  #   restart: always
+  #   network_mode: 'host'
+  #   environment:
+  #       PORT: ${PORT}
+  #       REACT_APP_PROVIDER_SOCKET: ${REACT_APP_PROVIDER_SOCKET}
+  # sf-explorer:
+  #   image: 'sugarfunge.azurecr.io/explorer:latest'
+  #   restart: always
+  #   network_mode: 'host'
+  #   environment:
+  #     WS_URL: ${WS_URL}
+  # ipfs:
+  #   image: 'ipfs/go-ipfs:master-2021-11-17-0c2f9d5'
+  #   restart: always
+  #   ports:
+  #     - "4001:4001"
+  #     - "8001:8080"
+  #     - "5001:5001"
+  #   volumes:
+  #     - ./ipfs:/data/ipfs
   appsmith:
     image: index.docker.io/appsmith/appsmith-ce
     ports:
