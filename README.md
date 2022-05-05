@@ -79,6 +79,7 @@ $ ngrok http http://localhost:4000
 6. [Hasura](https://hasura.io/): Instant GraphQL & REST APIs on new & existing data sources. ([Click here to access](http://localhost:8081))
 7. [Keycloak](https://www.keycloak.org): Open source identity and access management solution ([Click here to access](http://localhost:8080)) (Tip: The username and password is `keycloak`)
 8. [IPFS](https://ipfs.io): Distributed storage ([Click here to access the WebUI](http://localhost:5001/webui)) (API available at http://localhost:8001) 
+9. [AppSmith](https://www.appsmith.com/): Powerful open source framework to build internal tools ([Click here to access](http://localhost:81))
 
 - If you want update or stop the images
 ```bash
